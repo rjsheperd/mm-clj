@@ -1,0 +1,9 @@
+{:paths ["bb"]
+
+ :tasks
+ {:requires ([mattermost :as mm])
+  login     (mm/authenticate)
+  teams     {:depends [login]
+             :task    (println (mm/teams))}
+  unread    {:depends [login]
+             :task    (println (mm/unread))}}}
