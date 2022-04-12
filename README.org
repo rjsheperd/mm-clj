@@ -1,0 +1,15 @@
+#+TITLE: Mattermost client in Clojure/Babashka
+
+* Mattermost client in Clojure/Babashka
+
+- [[https://api.mattermost.com/][API Documentation]]
+- [[https://github.com/mattermost/mattermost-api-reference][API Reference]]
+
+** Progress
+- [ ] Prompt user for MM URL, username, password
+- [ ] Cache configuration object
+- [ ] Users API
+- [ ] Channels API
+- [ ] Teams API
+- [ ] Posts API
+- [ ] WebSocket Connection (?)
