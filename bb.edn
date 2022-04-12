@@ -1,9 +1,18 @@
 {:paths ["bb"]
 
  :tasks
- {:requires ([mattermost :as mm])
+ {:requires ([mattermost     :as mm]
+             [clojure.pprint :as pprint])
   login     (mm/authenticate)
   teams     {:depends [login]
-             :task    (println (mm/teams))}
+             :task    (do
+                        (println "Retrieving teams...")
+                        (->> (mm/teams)
+                             (pprint/print-table [:id :name :display_name])))}
   unread    {:depends [login]
-             :task    (println (mm/unread))}}}
+             :task    (do
+                        (println "Retrieving unread messages...")
+                        (->> (mm/unread)
+                             (reduce (fn [acc x] (+ acc (:mention_count x))) 0)
+                             (format "You have %s unread mentions.")
+                             (println)))}}}

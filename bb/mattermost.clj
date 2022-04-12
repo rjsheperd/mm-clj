@@ -46,7 +46,11 @@
 
 ;;; Teams
 (defn teams []
-  (auth-get (format "/api/v4/users/%s/teams" (get-config :user-id))))
+  (if-let [teams (get-config :teams)]
+    teams
+    (let [res (auth-get (format "/api/v4/users/%s/teams" (get-config :user-id)))]
+      (update-config {:teams (mapv #(select-keys % [:id :name :display_name]) res)})
+      res)))
 
 ;;; Team Members
 (defn team-members [team-id]
