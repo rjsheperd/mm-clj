@@ -1,5 +1,13 @@
 #+TITLE: Mattermost client in Clojure/Babashka
 
+** Setup
+
+1. [[https://github.com/babashka/babashka#installation][Install Babashka]]
+2. Clone this repo
+3. Copy ~auth.example.edn~ to ~.auth.edn~
+4. Run ~bb login~
+5. Run ~bb tasks~ to see all potential tasks
+
 ** Progress
 
 - [ ] Prompt user for MM URL, username, password
