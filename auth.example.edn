@@ -1,0 +1,3 @@
+{:mm-url   "https://<mattermost-url>"
+ :username "<username>"
+ :password "<password>"}

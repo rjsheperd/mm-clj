@@ -13,5 +13,7 @@
 /logs
 /target
 
-# Configuration files
+# Local Files
 .config.edn
+.data.edn
+.auth.edn
